@@ -103,17 +103,17 @@ install() {
 
     if [[ ! -f .env ]]; then
         echo "Writing default .env file..."
-        curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/.env -o .env
+        curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/.env -o .env
     fi
 
     if [[ ! -f azuracast.env ]]; then
         echo "Creating default AzuraCast settings file..."
-        curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/azuracast.sample.env -o azuracast.env
+        curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/azuracast.sample.env -o azuracast.env
     fi
 
     if [[ ! -f docker-compose.yml ]]; then
         echo "Retrieving default docker-compose.yml file..."
-        curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/docker-compose.sample.yml -o docker-compose.yml
+        curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/docker-compose.sample.yml -o docker-compose.yml
     fi
 
     docker-compose pull
@@ -128,7 +128,7 @@ install() {
 #
 update() {
 
-    curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/docker-compose.sample.yml -o docker-compose.new.yml
+    curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/docker-compose.sample.yml -o docker-compose.new.yml
 
     FILES_MATCH="$(cmp --silent docker-compose.yml docker-compose.new.yml; echo $?)"
     UPDATE_NEW=0
@@ -153,7 +153,7 @@ update() {
     fi
 
     if [[ ! -f azuracast.env ]]; then
-        curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/azuracast.sample.env -o azuracast.env
+        curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/azuracast.sample.env -o azuracast.env
         echo "Default environment file loaded."
     fi
 
@@ -174,7 +174,7 @@ update() {
 # Usage: ./docker.sh update-self
 #
 update-self() {
-    curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/master/docker.sh -o docker.sh
+    curl -fsSL https://raw.githubusercontent.com/neto007/AzuraCast/master/docker.sh -o docker.sh
     chmod a+x docker.sh
 
     echo "New Docker utility script downloaded."
