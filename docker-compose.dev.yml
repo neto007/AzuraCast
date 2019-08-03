@@ -9,7 +9,7 @@ services:
     # https://github.com/AzuraCast/AzuraCast/blob/master/SUPPORT.md#use-non-standard-ports
     ports:
       - '${AZURACAST_HTTP_PORT:-8080}:80'
-      - '${AZURACAST_HTTPS_PORT:-443}:443'
+      - '${AZURACAST_HTTPS_PORT:-4433}:443'
     depends_on:
       - mariadb
       - influxdb
